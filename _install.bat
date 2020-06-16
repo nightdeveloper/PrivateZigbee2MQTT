@@ -1,0 +1,1 @@
+call npm install --no-optional > _install.log 2>&1

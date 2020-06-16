@@ -1,0 +1,30 @@
+{
+  "name": "private-mqtt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.ts",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aedes": "^0.40.1",
+    "aedes-persistence": "^7.2.1",
+    "axios": "^0.19.2",
+    "date-fns": "2.9.0",
+    "forever": "^2.0.0",
+    "mqtt-packet": "^6.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@types/node": "^13.7.4",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.2"
+  },
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "debug": "nodemon --watch 'src/*.ts' src/main.ts"
+  }
+}

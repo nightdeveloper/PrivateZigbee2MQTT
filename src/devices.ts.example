@@ -1,0 +1,24 @@
+
+export const TELEMETRY_TEST_URL = "http://telemetry.server/smartdashboard/";
+export const TELEMETRY_DATA_URL = "http://telemetry.server/smartdashboard/telemetry";
+
+export const STATE_ON = "ON";
+export const STATE_OFF = "OFF";
+
+export const DEVICE_TOPIC_PREFIX= "zigbee2mqtt/";
+
+export const DEVICE_SWITCH1     = "zigbee2mqtt/0x0011111111111111"
+export const DEVICE_SWITCH2     = "zigbee2mqtt/0x0022222222222222";
+
+export const DEVICE_TEMPERATURE_OUTDOOR = "zigbee2mqtt/0x0033333333333333";
+export const DEVICE_TEMPERATURE_CABINET = "zigbee2mqtt/0x0044444444444444";
+export const DEVICE_TEMPERATURE_BEDROOM = "zigbee2mqtt/0x0055555555555555";
+
+export const DEVICE_PLUG        = "zigbee2mqtt/0x0066666666666666";
+
+// {"state":"ON","color":{"x":0.492781035381868,"y":0.415093021501115},"color_temp":428,"brightness":174}
+export const DEVICE_BULB        = "zigbee2mqtt/0x0077777777777777";
+
+export const TOPIC_LOG          = "zigbee2mqtt/bridge/log";
+
+export const LOG_DEVICE_ANNOUNCED = "device_announced";
