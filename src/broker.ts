@@ -7,13 +7,17 @@ import {
     DEVICE_BULB,
     DEVICE_PLUG,
     DEVICE_SWITCH1,
-    DEVICE_SWITCH2, DEVICE_TOPIC_PREFIX, LOG_DEVICE_ANNOUNCED,
+    DEVICE_SWITCH2,
+    DEVICE_TOPIC_PREFIX,
+    LOG_DEVICE_ANNOUNCED,
     STATE_OFF,
     STATE_ON,
-    TELEMETRY_DATA_URL, TOPIC_LOG
+    TELEMETRY_DATA_URL,
+    TOPIC_LOG
 } from "./devices";
 import {Logic} from "./logic";
 import axios from 'axios'
+import * as https from "https";
 
 export class Broker {
 
@@ -22,6 +26,12 @@ export class Broker {
     private aedes: aedes.Aedes;
     private server: net.Server | undefined = undefined;
     private logic: Logic;
+
+    private axiosInstance = axios.create({
+        httpsAgent: new https.Agent({
+            rejectUnauthorized: false
+        })
+    });
 
     constructor() {
         this.logic = new Logic(this);
@@ -102,7 +112,7 @@ export class Broker {
                     }
 
                     if (!isNoTele) {
-                        axios.post(TELEMETRY_DATA_URL, obj)
+                        this.axiosInstance.post(TELEMETRY_DATA_URL, obj)
                             .then((value: any) => this.logger.info("telemetry post " + value.data))
                             .catch((reason: any) => this.logger.error("telemetry error " + reason));
                     }
